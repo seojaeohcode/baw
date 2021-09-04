@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
+import "./Counter.css";
 
 class Counter extends Component {
-
   state = {
     number1: 0,
     number2:0,
@@ -144,25 +144,38 @@ class Counter extends Component {
   render(){
     return(
       <div>
-          <h1>Black And White</h1>
-          <h4>(ver2021.09.04/create by seojaeoh)</h4>
-      <h2>Round{this.state.Round<6 ? this.state.Round : '종료'}({this.state.Round<5 ? 5-this.state.Round+'라운드남음' : this.state.Round===5 ? '마지막라운드' : 'X 승자를 확인하세요.'})</h2>
-      <h3>player1</h3>
-      <div>승부숫자: {this.state.number1}</div>
-      <div>제출여부:{this.state.onpropose1===false ? 'No' : 'Yes'}</div>
-      <button onClick={this.handleIncrease1}>+</button>
-      <button onClick={this.handleDecrease1}>-</button>
-      <div><button onClick={this.handlePropose1}>제출</button></div>
-      <h3>player2</h3>
-      <div>승부숫자: {this.state.number2}</div>
-      <div>제출여부:{this.state.onpropose2===false ? 'No' : 'Yes'}</div>
-      <button onClick={this.handleIncrease2}>+</button>
-      <button onClick={this.handleDecrease2}>-</button>
-      <div><button onClick={this.handlePropose2}>제출</button></div>
-      <div>p1 승리:{this.state.winp1}, 패배:{this.state.lose1}</div>
-      <div>p2 승리:{this.state.winp2}, 패배:{this.state.lose2}</div>
-      <div><button onClick={this.fight}>승부</button></div>
-      <div><button onClick={this.checkwinner}>승자확인</button></div>
+          <div className="title">Black And White!</div>
+      <div className="round">Round{this.state.Round<6 ? this.state.Round : '종료'}({this.state.Round<5 ? 5-this.state.Round+'라운드남음' : this.state.Round===5 ? '마지막라운드' : 'X 승자를 확인하세요.'})</div>
+     
+      <div className="box1">
+      <div className="player">player1</div>
+      <div className="number">승부숫자: {this.state.number1}</div>
+      <div className="onoff">제출여부:{this.state.onpropose1===false ? 'No' : 'Yes'}</div>
+      <div className="plusminus">
+      <button onClick={this.handleIncrease1} className="btn-two red rounded">상승</button>
+      <button onClick={this.handleDecrease1} className="btn-two red rounded">하강</button>
+      <div className="propose"><button onClick={this.handlePropose1} className="btn-two green rounded">제출</button></div>
+      </div>
+      </div>
+     
+      <div className="box2">
+      <div className="player">player2</div>
+      <div className="number">승부숫자: {this.state.number2}</div>
+      <div className="onoff">제출여부:{this.state.onpropose2===false ? 'No' : 'Yes'}</div>
+      <div className="plusminus">
+      <button onClick={this.handleIncrease2} className="btn-two red rounded">상승</button>
+      <button onClick={this.handleDecrease2} className="btn-two red rounded">하강</button>
+      </div>
+      <div className="propose"><button onClick={this.handlePropose2} className="btn-two green rounded">제출</button></div>
+      </div> 
+     
+      <div className="winlose">
+      p1 승리:{this.state.winp1}  패배:{this.state.lose1}
+      <br/>p2 승리:{this.state.winp2}  패배:{this.state.lose2}
+      </div>
+      <div className="fight"><button onClick={this.fight} className="btn-two red rounded">승부</button></div>
+      <div className="winnercheck"><button onClick={this.checkwinner} className="btn-two yellow rounded">승자확인</button></div>
+      <div className="version">(ver2021.09.04/create by seojaeoh)</div>
       </div>
     )
   }
